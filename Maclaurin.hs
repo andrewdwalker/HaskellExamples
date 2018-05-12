@@ -45,7 +45,9 @@ thirdLst n x = zipWith (/) (secondLst n x) (map fromIntegral ( (map(\y->(factori
 macResult :: (Integral a, Enum a, Enum b, Floating b) => a -> b -> b
 macResult n x = sum (thirdLst n x)
 
---maclaurin x n = zipWith (*) map(\y->(x^y))[0..n] (zipWith (/) ( zipWith (*) (ymod2 n) (powersMacList n) ) map(\y->(factorial y) ) [0..n] )
+maclaurin :: (Integral a, Floating b) => a -> b -> b
+maclaurin  n x = sum (zipWith (*) (map(\y->(x^^y))[0..n])(zipWith (/) (map fromIntegral (powersMacList n)) (map fromIntegral (map(\y->(factorial y) )[0..n]) )) )
+--maclaurin x n = zipWith (*) map(\y->(x^^y))[0..n] (zipWith (/) ( zipWith (*) (ymod2 n) (powersMacList n) ) map(\y->(factorial y) ) [0..n] )
      
 testLst :: (Integral a, Floating b, Enum b) => a -> b -> [b]    
 testLst n x = zipWith (*) (map fromIntegral (ymod2 n)) (powersOfx (fromIntegral n) x)
