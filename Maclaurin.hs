@@ -4,15 +4,15 @@
 -- or in the case of Sin(x):  0 + 1x + 0 + -1x^3 / 3! + 0 + 1 x^5 / 5! + 0 + -1x^7/7! ...
 -- See Wikipedia https://en.wikipedia.org/wiki/Taylor_series
 
-factorial :: (Integral a) => a -> a  
-factorial 0 = 1  
-factorial n = n * factorial (n - 1)  
 
 -- return list of alterating 0 and 1
+-- not needed for maclaurin or macResult
 ymod2 :: Integral a =>  [a]
 ymod2  = map (\y->(y `mod` 2)) [0..]    
 
-
+factorial :: (Integral a) => a -> a  
+factorial 0 = 1  
+factorial n = n * factorial (n - 1)  
 
 powersMac :: (Integral a) => a -> a
 powersMac n
