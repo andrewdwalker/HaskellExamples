@@ -36,7 +36,7 @@ firstLst   = zipWith (*) (ymod2 ) (powersMacList)
 
 -- return list of 0x, 1x, 0x^2, -1x^3, ... to n
 secondLst :: (Enum b, Floating b) =>  b -> [b]
-secondLst  x = zipWith (*) (map fromIntegral(firstLst )) (powersOfx  x)
+secondLst  x = zipWith (*) (map fromIntegral(powersMacList )) (powersOfx  x)
 
 -- return list of 0, 1x, 0 , -1x^3 / 3! , 0 , 1 x^5 / 5! , 0 ... to n
 thirdLst :: ( Enum b, Floating b) =>  b -> [b]
