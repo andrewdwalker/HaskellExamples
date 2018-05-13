@@ -43,10 +43,10 @@ thirdLst :: ( Enum b, Floating b) =>  b -> [b]
 thirdLst  x = zipWith (/) (secondLst  x) (map fromIntegral ( (map(\y->(factorial y) ) [0..])) )
 
 -- sum the list to get result
-macResult :: (Enum b, Floating b) =>  b -> b
-macResult  x = sum (thirdLst  x)
+macResult :: (  Enum b, Floating b) =>  Int -> b -> b
+macResult  n x = sum (take n (thirdLst  x))
 
-maclaurin :: ( Floating b) =>  b -> b
-maclaurin   x = sum (zipWith (*) (map(\y->(x^^y))[0..])(zipWith (/) (map fromIntegral (powersMacList )) (map fromIntegral (map(\y->(factorial y) )[0..]) )) )
+maclaurin :: (  Floating b) => Int-> b -> b
+maclaurin  n x = sum ( take n (zipWith (*) (map(\y->(x^^y))[0..])(zipWith (/) (map fromIntegral (powersMacList )) (map fromIntegral (map(\y->(factorial y) )[0..]) )) ))
     
 
